@@ -9,6 +9,10 @@ use App\Item;
 
 class userController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request)
 	{
 		return view("user", ["data" => User::find($request->id)]);
